@@ -1,0 +1,17 @@
+.content-login {
+    width: 100%;
+    height: calc(100vh - 74px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.content-login > .card {
+    min-width: 300px;
+}
+
+@media (max-width: 576px) {
+    .content-login > .card {
+        margin: auto 10px;
+        min-width: 100%;
+    }
+}

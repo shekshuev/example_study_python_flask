@@ -1,0 +1,74 @@
+{% extends "base.html" %} {% block content %}
+<div class="container">
+    <div class="row">
+        <span class="h1 mt-3">Личный кабинет пользователя</span>
+    </div>
+    {% if success %}
+    <div class="row">
+        <div class="col-12">
+            <div class="alert alert-success mt-3">{{ success }}</div>
+        </div>
+    </div>
+    {% endif %} {% if error %}
+    <div class="row">
+        <div class="col-12">
+            <div class="alert alert-danger mt-3">{{ error }}</div>
+        </div>
+    </div>
+    {% endif %}
+    <form class="row" action="/accounts/edit" method="POST">
+        <input type="hidden" name="id" value="{{ account.id }}" />
+        <div class="col-12 col-sm-6">
+            <div class="form-group mt-3">
+                <label for="username">Имя пользователя</label>
+                <input type="text" class="form-control" id="username" name="username" value="{{ account.username }}" />
+            </div>
+        </div>
+        <div class="col-12 col-sm-6">
+            <div class="form-group mt-3">
+                <label for="lastname">Фамилия</label>
+                <input type="text" class="form-control" id="lastname" name="lastname" value="{{ account.lastname }}" />
+            </div>
+        </div>
+        <div class="col-12 col-sm-6">
+            <div class="form-group mt-3">
+                <label for="firstname">Имя</label>
+                <input
+                    type="text"
+                    class="form-control"
+                    id="firstname"
+                    name="firstname"
+                    value="{{ account.firstname }}"
+                />
+            </div>
+        </div>
+        <div class="col-12 col-sm-6">
+            <div class="form-group mt-3">
+                <label for="middlename">Отчество</label>
+                <input
+                    type="text"
+                    class="form-control"
+                    id="middlename"
+                    name="middlename"
+                    value="{{ account.middlename }}"
+                />
+            </div>
+        </div>
+        <div class="col-12 col-sm-6">
+            <div class="form-group mt-3">
+                <label for="password">Пароль</label>
+                <input type="password" class="form-control" id="password" name="password" />
+            </div>
+        </div>
+        <div class="col-12 col-sm-6">
+            <div class="form-group mt-3">
+                <label for="confirm-password">Повторите пароль</label>
+                <input type="password" class="form-control" id="confirm-password" name="confirm-password" />
+            </div>
+        </div>
+        <div class="col-12">
+            <button type="submit" class="btn btn-primary mt-3 float-end">Сохранить</button>
+        </div>
+    </form>
+</div>
+{% endblock %}
